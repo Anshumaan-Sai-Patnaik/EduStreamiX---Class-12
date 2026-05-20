@@ -1,8 +1,4 @@
-const mongoose = require('mongoose');
-
-const SSC_Syllabus = require('../models/SSC');
-const CBSE_Syllabus = require('../models/CBSE');
-const ISC_Syllabus = require('../models/ISC');
+const { getCollection } = require('../services/googleDriveService');
 
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
@@ -15,14 +11,18 @@ exports.getStudy = async (req, res) => {
         let syllabus = null;
 
         if (board === 'SSC') {
-            syllabus = await SSC_Syllabus.find({ grade: grade });
+            syllabus = await getCollection('SSC_Syllabi_Intermediate');
         } else if (board === 'CBSE') {
-            syllabus = await CBSE_Syllabus.find({ grade: grade });
+            syllabus = await getCollection('CBSE_Syllabi_Intermediate');
         } else if (board === 'ISC') {
-            syllabus = await ISC_Syllabus.find({ grade: grade });
+            syllabus = await getCollection('ISC_Syllabi_Intermediate');
         } else {
             return res.status(400).send("Invalid board specified.");
         }
+
+        syllabus = syllabus.filter(
+            item => Number(item.grade) === grade
+        );
 
         if (syllabus && syllabus.length > 0) {
             res.render('study', {
