@@ -12,7 +12,6 @@
     }
 
     const modal         = document.getElementById('boardModal');
-    const startBtn      = document.getElementById('startLearningBtn');
     const cancelBtn     = document.getElementById('cancelBtn');
     const submitBtn     = document.getElementById('submitBtn');
     const selectWrapper = document.getElementById('boardSelectWrapper');
@@ -20,28 +19,69 @@
     const boardOptions  = document.getElementById('boardOptions');
     const boardInput    = document.getElementById('boardSelect');
 
-    function openModal() {
-        if (!modal) return;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+    function dismissModal() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function closeModal() {
-        if (!modal) return;
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    startBtn?.addEventListener('click', openModal);
-    cancelBtn?.addEventListener('click', closeModal);
+    cancelBtn?.addEventListener('click', dismissModal);
 
     modal?.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+        if (e.target === modal) dismissModal();
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
+        if (e.key === 'Escape') dismissModal();
     });
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+        
+        const scrollHeight = Math.max(
+            document.body.scrollHeight, document.documentElement.scrollHeight,
+            document.body.offsetHeight, document.documentElement.offsetHeight,
+            document.body.clientHeight, document.documentElement.clientHeight
+        );
+        const maxScroll = Math.max(0, scrollHeight - clientHeight);
+        
+        const footer = document.querySelector('.site-footer');
+        const fadeDistance = footer ? footer.offsetHeight + 80 : 250;
+        const fadeStartPx = Math.max(0, maxScroll - fadeDistance);
+        
+        let fadeFraction = 0;
+        if (maxScroll > 0 && scrollTop >= fadeStartPx) {
+            fadeFraction = (scrollTop - fadeStartPx) / (maxScroll - fadeStartPx);
+        }
+        
+        if (maxScroll > 0 && maxScroll - scrollTop <= 20) {
+            fadeFraction = 1;
+        }
+        
+        fadeFraction = Math.max(0, Math.min(1, fadeFraction));
+
+        // Show modal when page is 70% faded
+        if (modal) {
+            modal.style.opacity = '';
+            modal.style.pointerEvents = '';
+            modal.style.transition = '';
+            
+            const modalContent = modal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.style.transform = '';
+                modalContent.style.transition = '';
+            }
+
+            if (fadeFraction >= 0.7) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Optional: lock scroll once open
+            } else {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    }, { passive: true });
+
+    window.dispatchEvent(new Event('scroll'));
 
     selectTrigger?.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -190,7 +230,7 @@
             content.style.transform  = '';
 
             if (dy > 120) {
-                closeModal();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
     })();
