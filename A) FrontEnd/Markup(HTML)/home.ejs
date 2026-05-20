@@ -4,152 +4,68 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <title>EduStreamiX — The Classroom Was Never This Good</title>
+    <title>EduStreamiX — Grade 12 Classroom</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Nunito:wght@400;600;700;800&family=Permanent+Marker&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../Style(CSS)/home.css">
 </head>
 
 <body>
-    <div class="page-wrapper">
-        <nav class="navbar">
-            <div class="nav-content"
-                style="display: flex; justify-content: center; align-items: center; gap: clamp(15px, 5vw, 80px); width: 100%;">
-                <div class="partner-logo-left">
-                    <img src="../Images/osmania_logo_black.png" alt="Osmania Logo"
-                        style="height: clamp(70px, 16vw, 140px); width: auto; object-fit: contain;">
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: center;">
-                    <div class="logo">
-                        <span class="logo-edu">edu</span>
-                        <span class="logo-stream">Streami</span>
-                        <span class="logo-x">X</span>
-                    </div>
-                    <div class="grade-badge-nav">For Grade 12</div>
-                </div>
-                <div class="partner-logo-right">
-                    <img src="../Images/otbi_logo_black.png" alt="OTBI Logo"
-                        style="height: clamp(75px, 16vw, 140px); width: auto; object-fit: contain;">
-                </div>
+    <div class="stage" id="stage">
+        
+        <div class="primary-hero" id="primaryHero">
+            <div class="logos-row">
+                <img class="logo-left-img" src="../Images/osmania_logo_black.png" alt="Osmania Logo">
+                <img class="logo-right-img" src="../Images/otbi_logo_black.png" alt="Osmania TBI Logo">
             </div>
-        </nav>
 
-        <section class="hero">
+            <h1 class="brand-heading" id="brandHeading">
+                <span class="brand-edu">edu</span><span class="brand-stream">Streami</span><span class="brand-x">X</span>
+            </h1>
+
             <div class="hero-badge">
                 ✨ The Distraction-Free Platform
             </div>
 
-            <div class="syllabus-tag">
-                <span class="syllabus-text">SSC &middot; CBSE &middot; ICSE</span>
+            <div class="brand-subtitle">
+                <span id="highlightTarget" class="highlight">for grade 12</span>
             </div>
-
-            <h1 class="hero-headline">
-                The Classroom Was<br />Never <span class="accent">This Good</span>
-            </h1>
-
-            <p class="hero-body">
-                Every concept from your syllabus. The best YouTube video for it —
-                ranked by students like you. No more hunting through playlists.
-                Just open, search, and understand.
-            </p>
-        </section>
-
-        <div class="chalk-divider">
-            <span class="chalk-divider-label">· · ·</span>
         </div>
 
-        <div class="features">
-            <div class="feature-item">
-                <div class="feature-icon">📚</div>
-                <div>
-                    <div class="feature-text-head">Syllabus-mapped concepts</div>
-                    <div class="feature-text-sub">100+ topics aligned to your exact board curriculum.</div>
+        <div class="board-selection-container" id="boardSelectionContainer">
+            <h2 class="board-title">Choose Your Board</h2>
+            <p class="board-subtitle">Select your syllabus board to access your grade 12 classroom</p>
+            
+            <div class="board-cards-grid">
+                <!-- SSC -->
+                <div class="board-card ssc" data-value="SSC">
+                    <div class="board-card-badge">SSC</div>
+                    <div class="board-card-name">Telangana SSC</div>
+                    <div class="board-card-desc">State Board syllabus and examinations</div>
+                </div>
+                
+                <!-- CBSE -->
+                <div class="board-card cbse" data-value="CBSE">
+                    <div class="board-card-badge">CBSE</div>
+                    <div class="board-card-name">CBSE</div>
+                    <div class="board-card-desc">Central Board of Secondary Education</div>
+                </div>
+                
+                <!-- ISC -->
+                <div class="board-card isc" data-value="ISC">
+                    <div class="board-card-badge">ISC</div>
+                    <div class="board-card-name">ISC</div>
+                    <div class="board-card-desc">Indian School Certificate syllabus</div>
                 </div>
             </div>
 
-            <div class="feature-item">
-                <div class="feature-icon">⚡</div>
-                <div>
-                    <div class="feature-text-head">Instant search</div>
-                    <div class="feature-text-sub">Search any topic, skip straight to the best video. Zero friction.
-                    </div>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-icon">📝</div>
-                <div>
-                    <div class="feature-text-head">AI-Powered Practice</div>
-                    <div class="feature-text-sub">Generate smart chapter-wise tests instantly.
-                        Get customized questions based on your syllabus, difficulty level, and learning progress.</div>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-icon">🎯</div>
-                <div>
-                    <div class="feature-text-head">Real Exam Experience</div>
-                    <div class="feature-text-sub">Practice with real exam-style questions and receive instant evaluation
-                        with detailed performance analysis.</div>
-                </div>
-            </div>
-
-        </div>
-
-        <section class="section-cta">
-            <div class="badge-label">
-                <span class="badge-icon">🎓</span>
-                FOR EVERY STUDENT
-            </div>
-            <h2 class="section-headline">Your Best Teacher is Already on YouTube.</h2>
-            <p class="section-sub">We'll help you find them.</p>
-            <p class="section-body">
-                Join EduStreamiX now and get instant access to <strong>100+ concepts</strong> mapped
-                to your syllabus — each with the best video the internet has to offer,
-                chosen by your peers.
-            </p>
-        </section>
-
-        <footer class="site-footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-edu">edu</span><span class="logo-stream">Streami</span><span
-                        class="logo-x">X</span>
-                </div>
-                <p class="footer-tagline">The classroom was never this good.</p>
-            </div>
-            <div class="footer-bottom">
-                <p class="footer-copy">&copy; 2026 EduStreamiX. All rights reserved.</p>
-            </div>
-        </footer>
-
-        <div class="modal-overlay" id="boardModal">
-            <div class="modal-content">
-                <h3 class="modal-title">Select Your Board of Education</h3>
-                <p class="modal-desc">Choose your board to get tailored syllabus content.</p>
-                <div class="custom-select-wrapper" id="boardSelectWrapper">
-                    <div class="custom-select-trigger" id="boardSelectTrigger">
-                        <span>Select an option...</span>
-                        <div class="arrow">▼</div>
-                    </div>
-                    <div class="custom-options" id="boardOptions">
-                        <div class="custom-option" data-value="SSC">SSC</div>
-                        <div class="custom-option" data-value="CBSE">CBSE</div>
-                        <div class="custom-option" data-value="ISC">ISC</div>
-                    </div>
-                    <input type="hidden" id="boardSelect" value="">
-                </div>
-                <div class="modal-actions">
-                    <button class="modal-btn-cancel" id="cancelBtn">Cancel</button>
-                    <button class="modal-btn-submit" id="submitBtn">Continue</button>
-                </div>
-            </div>
+            <input type="hidden" id="selectedBoardInput" value="">
+            <button id="continueBtn" class="continue-btn" disabled>Continue to Classroom</button>
         </div>
 
     </div>
+
     <script src="../Script(JS)/home.js"></script>
 </body>
 

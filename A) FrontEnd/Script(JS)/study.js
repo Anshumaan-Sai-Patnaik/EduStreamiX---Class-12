@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         subjectsGrid.style.display = 'grid';
         mainActions.style.display = 'flex';
         
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         pageTitle.textContent = 'Your Subjects';
         pageSubtitle.textContent = 'Select a subject to dive into the syllabus.';
     });
@@ -59,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chaptersView.style.display = 'none';
         unitsView.style.display = 'block';
         
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         pageTitle.textContent = currentSubjectName;
         pageSubtitle.textContent = 'Select a unit or chapter to begin learning.';
     });
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         videoContainer.innerHTML = '';
         
         resourceView.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         
         if (resourceReturnView === 'chapters') {
             chaptersView.style.display = 'block';
@@ -137,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mainActions.style.display = 'none';
         unitsView.style.display = 'block';
         
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         pageTitle.textContent = subjectName;
         pageSubtitle.textContent = 'Select a unit or chapter to begin learning.';
 
@@ -211,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
         unitsView.style.display = 'none';
         chaptersView.style.display = 'block';
         
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         pageTitle.textContent = unitData.name;
         pageSubtitle.textContent = 'Select a chapter to watch the video.';
 
@@ -262,6 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chaptersView.style.display = 'none';
         resourceView.style.display = 'block';
 
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         pageTitle.textContent = titleName;
         pageSubtitle.textContent = 'Enjoy the lesson!';
 

@@ -50,6 +50,12 @@ body {
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
+    animation: pageFadeIn 0.8s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 body::before {
@@ -74,8 +80,7 @@ body::before {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.5rem;
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 100;
     background: rgba(246, 246, 242, 0.94);
     backdrop-filter: blur(10px);
