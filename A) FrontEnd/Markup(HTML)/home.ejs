@@ -35,7 +35,6 @@
 
         <div class="board-selection-container" id="boardSelectionContainer">
             <h2 class="board-title">Choose Your Board</h2>
-            <p class="board-subtitle">Select your syllabus board to access your grade 12 classroom</p>
             
             <div class="board-cards-grid">
                 <!-- SSC -->
@@ -61,9 +60,13 @@
             </div>
 
             <input type="hidden" id="selectedBoardInput" value="">
-            <button id="continueBtn" class="continue-btn" disabled>Continue to Classroom</button>
         </div>
 
+    </div>
+
+    <div class="page-loader-overlay" id="pageLoaderOverlay">
+        <div class="page-loader-spinner"></div>
+        <p class="page-loader-text">Setting up your classroom...</p>
     </div>
 
     <script src="../Script(JS)/home.js"></script>

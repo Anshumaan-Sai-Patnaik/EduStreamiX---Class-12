@@ -123,31 +123,37 @@
                 boardInput.value = boardValue;
             }
             
-            // Enable continue button
-            if (continueBtn) {
-                continueBtn.removeAttribute('disabled');
+            // Visual feedback on the board selection container
+            if (boardContainer) {
+                boardContainer.style.pointerEvents = 'none';
             }
+            
+            // Show page loader overlay
+            const pageLoaderOverlay = document.getElementById('pageLoaderOverlay');
+            if (pageLoaderOverlay) {
+                pageLoaderOverlay.classList.add('active');
+            }
+            
+            // Redirect to study path after a small delay to allow animation to start
+            setTimeout(() => {
+                window.location.href = `/study?grade=12&board=${encodeURIComponent(boardValue)}`;
+            }, 400);
         });
     });
 
-    // Handle submit / continue
-    continueBtn?.addEventListener('click', () => {
-        const board = boardInput?.value;
-        if (!board) {
-            boardContainer.classList.add('shake');
-            setTimeout(() => boardContainer.classList.remove('shake'), 450);
-            return;
+    // Reset UI state when user navigates back to this page
+    window.addEventListener('pageshow', () => {
+        const pageLoaderOverlay = document.getElementById('pageLoaderOverlay');
+        if (pageLoaderOverlay) {
+            pageLoaderOverlay.classList.remove('active');
         }
-
-        // Show loading spinner
-        continueBtn.innerHTML = '<span class="loading-spinner"></span> Loading Classroom...';
-        continueBtn.style.pointerEvents = 'none';
-        continueBtn.style.opacity = '0.8';
-
-        // Redirect to study path
-        setTimeout(() => {
-            window.location.href = `/study?grade=12&board=${encodeURIComponent(board)}`;
-        }, 600);
+        if (boardContainer) {
+            boardContainer.style.pointerEvents = '';
+        }
+        boardCards.forEach(c => c.classList.remove('selected'));
+        if (boardInput) {
+            boardInput.value = '';
+        }
     });
 
 })();

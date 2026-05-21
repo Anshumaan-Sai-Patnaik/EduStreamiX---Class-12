@@ -351,11 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     testTriggers.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const btnClass = btn.parentElement.className;
-            let ctx = 'subject';
-            if (btnClass.includes('units-header')) ctx = 'subject';
-            else if (btnClass.includes('chapters-header')) ctx = 'unit';
-            else if (btnClass.includes('resource-header')) ctx = 'chapter';
+            const ctx = btn.getAttribute('data-context') || 'subject';
 
             if (isSSC && ctx !== 'subject') return;
 
@@ -363,9 +359,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (isSSC) {
-            const btnClass = btn.parentElement.className;
-            if (btnClass.includes('chapters-header') || btnClass.includes('resource-header')) {
-                btn.style.display = 'none';
+            const ctx = btn.getAttribute('data-context') || 'subject';
+            if (ctx === 'unit' || ctx === 'chapter') {
+                const container = btn.closest('.test-suggestion-container');
+                if (container) {
+                    container.style.display = 'none';
+                } else {
+                    btn.style.display = 'none';
+                }
             }
         }
     });

@@ -363,6 +363,65 @@ body::before {
     box-shadow: 1px 1px 0 var(--ink-black);
 }
 
+.test-suggestion-container {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--board-white);
+    border: 2px dashed var(--ink-blue);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 4px 4px 0 rgba(9, 82, 165, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.test-suggestion-content h3 {
+    font-family: var(--font-hand);
+    color: var(--ink-blue);
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.test-suggestion-content p {
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+.test-suggestion-container .btn-test-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--hl-yellow);
+    border: 2px solid var(--ink-black);
+    color: var(--ink-black);
+    font-family: var(--font-marker);
+    font-size: 1.1rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--ink-black);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.test-suggestion-container .btn-test-trigger:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--ink-black);
+    background: var(--ink-blue);
+    color: var(--board-white);
+}
+
+.test-suggestion-container .btn-test-trigger:hover svg {
+    stroke: var(--board-white);
+}
+
+.test-suggestion-container .btn-test-trigger:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--ink-black);
+}
+
 .btn-back:hover {
     transform: translate(-2px, -2px);
     box-shadow: 5px 5px 0 var(--ink-black);
