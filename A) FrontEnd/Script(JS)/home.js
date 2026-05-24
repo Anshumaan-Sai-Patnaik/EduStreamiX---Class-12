@@ -90,8 +90,16 @@
             }
         }, 150);
 
-        // Transition starts exactly 2 seconds (2000ms) after typing is complete
-        setTimeout(transitionToBoardSelection, 2000);
+        // Show videos ad after subtitle finishes animating
+        setTimeout(() => {
+            const videosAd = document.getElementById('videosAd');
+            if (videosAd) {
+                videosAd.classList.add('show');
+            }
+        }, 800);
+
+        // Transition starts a bit later to let users read the ad
+        setTimeout(transitionToBoardSelection, 3000);
     }
 
     function transitionToBoardSelection() {
