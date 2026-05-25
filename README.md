@@ -4,7 +4,7 @@
 
 > A modern full-stack educational platform designed to deliver seamless distraction-free learning experiences.
 
-EduStreamiX for Class 11 is a web application that provides students in grade 12 with organized study resources available on YouTube, and an AI-powered educational assistant through a premium and responsive interface. The platform integrates advanced animations, backend-driven rendering, and cloud-based resource management to create a next-generation learning environment. 
+EduStreamiX for Class 12 is a web application that provides students in grade 12 with organized study resources available on YouTube, and an AI-powered educational assistant through a premium and responsive interface. The platform integrates advanced animations, backend-driven rendering, and cloud-based resource management to create a next-generation learning environment. 
 
 ---
 
