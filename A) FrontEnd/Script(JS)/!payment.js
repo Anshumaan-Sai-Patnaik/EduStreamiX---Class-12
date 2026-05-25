@@ -47,6 +47,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: "EduStreamiX",
                 description: "Grade 12 Classroom Access",
                 image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Nice academic cap icon for the popup
+                
+                // Force an IMMEDIATE and EXCLUSIVE UPI QR Code display
+                config: {
+                    display: {
+                        blocks: {
+                            qr_only: {
+                                name: "Scan to Pay",
+                                instruments: [
+                                    {
+                                        method: "upi",
+                                        flows: ["qr"] // Forces only the QR code to appear, skipping the UPI app list or VPA entry
+                                    }
+                                ]
+                            }
+                        },
+                        sequence: ["block.qr_only"],
+                        preferences: {
+                            show_default_blocks: false
+                        }
+                    }
+                },
+                
+                // Pre-fill user details and make them non-editable
+                prefill: {
+                    contact: "9099097528"
+                },
+                readonly: {
+                    contact: true
+                },
+
                 theme: {
                     color: "#0952A5",
                     backdrop_color: "rgba(26, 26, 26, 0.85)" // Dark overlay behind the Razorpay modal

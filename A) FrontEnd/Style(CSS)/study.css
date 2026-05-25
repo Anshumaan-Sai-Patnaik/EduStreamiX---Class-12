@@ -166,8 +166,9 @@ body::before {
 
 .subtitle {
     font-family: var(--font-hand);
-    font-size: 1.2rem;
-    color: var(--text-secondary);
+    font-size: 2rem;
+    color: var(--ink-black);
+    font-weight: 800;
 }
 
 .subjects-grid {
