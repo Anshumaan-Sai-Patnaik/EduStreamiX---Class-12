@@ -40,6 +40,21 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     padding: 1.5rem;
+    animation: pageFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes pageFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+body.fade-out-page {
+    animation: pageFadeOut 0.8s ease-in-out forwards !important;
+}
+
+@keyframes pageFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 body::before {

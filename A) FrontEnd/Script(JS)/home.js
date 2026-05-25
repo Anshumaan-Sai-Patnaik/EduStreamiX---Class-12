@@ -45,9 +45,18 @@
         });
     }
 
+    // The user requested to play the long typing animation EVERY time they visit the site.
+    // (No skipping to board selection directly)
+
     // Initialize typewriter preparation
     if (brandHeading) {
+        // Hide the heading to completely prevent any "Flash of Unstyled Content"
+        brandHeading.style.opacity = '0';
+        
         wrapTextInSpans(brandHeading);
+        
+        // Once wrapped in hidden spans, it's safe to reveal the container
+        brandHeading.style.opacity = '1';
         
         const chars = brandHeading.querySelectorAll('.char');
         let charIndex = 0;
