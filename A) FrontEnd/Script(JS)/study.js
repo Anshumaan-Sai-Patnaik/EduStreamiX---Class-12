@@ -309,6 +309,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pillGroups = document.querySelectorAll('.pill-group');
     const mcqConfigSection = document.getElementById('mcqConfigSection');
     const sscConfigSection = document.getElementById('sscConfigSection');
+    const limitModal = document.getElementById('limitModal');
+    const closeLimitBtn = document.getElementById('closeLimitBtn');
     
     const isSSC = window.BOARD_NAME === 'SSC';
     let currentTestMode = isSSC ? 'theory' : 'mcq';
@@ -323,6 +325,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openTestModal(contextLevel) {
         if (!testModal) return;
+
+        // Check if daily limit exceeded
+        const getTestCount = () => {
+            const match = document.cookie.match(new RegExp('(^| )testCreationCount=([^;]+)'));
+            if (match) return parseInt(match[2]);
+            return 0;
+        };
+
+        if (getTestCount() >= 2) {
+            if (limitModal) {
+                limitModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                alert("Daily limit exceeded. You can only generate 2 practice tests per day.");
+            }
+            return;
+        }
+
         currentTestContext = contextLevel;
 
         if (isSSC) {
@@ -375,6 +395,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     testModal?.addEventListener('click', (e) => {
         if (e.target === testModal) closeTestModal();
+    });
+
+    closeLimitBtn?.addEventListener('click', () => {
+        if (limitModal) limitModal.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    limitModal?.addEventListener('click', (e) => {
+        if (e.target === limitModal) {
+            limitModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 
     pillGroups.forEach(group => {
@@ -458,6 +490,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error('Network response was not ok');
 
             const data = await response.json();
+            
+            // Increment the counter on successful API call
+            const getTestCount = () => {
+                const match = document.cookie.match(new RegExp('(^| )testCreationCount=([^;]+)'));
+                if (match) return parseInt(match[2]);
+                return 0;
+            };
+            let count = getTestCount();
+            count++;
+            let date = new Date();
+            date.setTime(date.getTime() + (24 * 60 * 60 * 1000)); // expires in 1 day
+            document.cookie = `testCreationCount=${count};expires=${date.toUTCString()};path=/`;
+
             closeTestModal();
             openTestView(data.questions, data.avgTimeSeconds, currentSubjectName, data.testMode || currentTestMode);
         } catch (error) {

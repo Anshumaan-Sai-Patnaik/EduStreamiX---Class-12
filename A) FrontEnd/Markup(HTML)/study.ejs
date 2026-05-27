@@ -89,7 +89,8 @@
             <div class="test-suggestion-container">
                 <div class="test-suggestion-content">
                     <h3>Ready to check your knowledge?</h3>
-                    <p>Take a quick test to reinforce what you've learned. It's completely optional!</p>
+                    <p>Take a quick test to reinforce what you've learned. It's completely optional!<br>
+                    <span style="font-size: 0.85rem; opacity: 0.85; display: inline-block; margin-top: 0.25rem;"><strong>Note:</strong> You can take up to 2 practice tests per day.</span></p>
                 </div>
                 <button class="btn-test-trigger" data-context="subject">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -124,7 +125,8 @@
             <div class="test-suggestion-container">
                 <div class="test-suggestion-content">
                     <h3>Ready to check your knowledge?</h3>
-                    <p>Take a quick test to reinforce what you've learned. It's completely optional!</p>
+                    <p>Take a quick test to reinforce what you've learned. It's completely optional!<br>
+                    <span style="font-size: 0.85rem; opacity: 0.85; display: inline-block; margin-top: 0.25rem;"><strong>Note:</strong> You can take up to 2 practice tests per day.</span></p>
                 </div>
                 <button class="btn-test-trigger" data-context="unit">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -175,7 +177,8 @@
             <div class="test-suggestion-container">
                 <div class="test-suggestion-content">
                     <h3>Ready to check your knowledge?</h3>
-                    <p>Take a quick test to reinforce what you've learned. It's completely optional!</p>
+                    <p>Take a quick test to reinforce what you've learned. It's completely optional!<br>
+                    <span style="font-size: 0.85rem; opacity: 0.85; display: inline-block; margin-top: 0.25rem;"><strong>Note:</strong> You can take up to 2 practice tests per day.</span></p>
                 </div>
                 <button class="btn-test-trigger" data-context="chapter">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -236,6 +239,10 @@
                                 Qs</span></button>
                         <button class="config-pill" data-value="long">Long <span class="pill-sub">5 Qs</span></button>
                     </div>
+                </div>
+
+                <div class="test-config-note" style="margin-top: 1rem; margin-bottom: 1.5rem; font-size: 0.85rem; color: #666; text-align: center; background-color: #f8f9fa; padding: 0.5rem; border-radius: 6px; border: 1px solid #e9ecef;">
+                    <span style="font-weight: 600;">📌 Note:</span> You can generate a maximum of <strong>2 practice tests per day</strong>.
                 </div>
 
                 <div class="modal-actions">
@@ -313,6 +320,18 @@
                 <div class="modal-actions">
                     <button class="modal-btn-cancel" id="continueTestBtn">Continue</button>
                     <button class="modal-btn-submit" id="submitTestBtn">Submit Test</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== LIMIT EXCEEDED DIALOG ========== -->
+        <div class="modal-overlay" id="limitModal">
+            <div class="modal-content">
+                <div style="font-size: 3rem; text-align: center; margin-bottom: 1rem;">🛑</div>
+                <h3 class="modal-title">Daily Limit Exceeded</h3>
+                <p class="modal-desc">You can only generate 2 practice tests per day. This helps us manage our AI API limits. Please come back tomorrow to take more tests!</p>
+                <div class="modal-actions">
+                    <button class="modal-btn-submit" id="closeLimitBtn">Understood</button>
                 </div>
             </div>
         </div>
