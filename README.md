@@ -1,6 +1,6 @@
 # 🎓 EduStreamiX  - Class 12
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://class-12-education.onrender.com/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://edustreamix-class-12-dpt8.onrender.com/)
 
 > A modern full-stack educational platform designed to deliver seamless distraction-free learning experiences.
 
